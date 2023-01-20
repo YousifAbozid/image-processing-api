@@ -4,7 +4,8 @@
   "description": "A small project to get pictuers in specific width and height",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "build": "npx tsc"
   },
   "author": "Yousif Abozid",
   "license": "ISC",
