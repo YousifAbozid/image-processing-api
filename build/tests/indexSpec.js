@@ -78,15 +78,13 @@ describe('Test image processing', function () {
     var height = '1000';
     var outputThumbPath = path_1.default.join(__dirname, '../../assets/thumb', filename) +
         "-".concat(width, "-").concat(height, ".jpg");
-    var outputFullImagePath = path_1.default.join(__dirname, '../../assets/full', filename) + ".jpg";
-    //console.log(outputFullImagePath)
+    var outputFullImagePath = path_1.default.join(__dirname, '../../assets/full', filename) + '.jpg';
     it('Get the image with a proper filename', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, request.get("/images?filename=".concat(filename))];
                 case 1:
-                    response = _a.sent();
+                    _a.sent();
                     expect(fs_1.default.existsSync(outputFullImagePath)).toBeTrue();
                     return [2 /*return*/];
             }
@@ -96,7 +94,7 @@ describe('Test image processing', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/images?filename=test")];
+                case 0: return [4 /*yield*/, request.get('/images?filename=test')];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(400);

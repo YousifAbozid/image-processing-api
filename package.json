@@ -4,12 +4,13 @@
   "description": "A small project to get pictuers in specific width and height",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.ts",
+    "start": "node build/index.js",
+    "dev": "nodemon src/index.ts",
     "build": "npx tsc",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine",
-    "lint": "eslint . --ext .ts --fix",
-    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "eslint . --ext .ts --fix"
   },
   "author": "Yousif Abozid",
   "license": "ISC",

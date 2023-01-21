@@ -55,7 +55,7 @@ routes.get('/images', function (req, res) { return __awaiter(void 0, void 0, voi
                 images = fs_1.default.readdirSync(path_1.default.join(__dirname, '../../assets/full'));
                 imageNames = images.map(function (image) { return image.split('.')[0]; });
                 _a = req.query, filename = _a.filename, width = _a.width, height = _a.height;
-                filenameToString = String(filename);
+                filenameToString = filename;
                 widthToNumber = Number(width);
                 heightToNumber = Number(height);
                 if (!((filename && !width) || !height)) return [3 /*break*/, 1];
