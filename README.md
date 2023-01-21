@@ -24,6 +24,6 @@ A project made as part of Udacity Nanodegree
 - Example: `http://localhost:3000/api/images?filename=fjord&width=500&height=500`
 - You can find your resized image in `assets/thumb` and also you can see it in the browser.
 
-#### Finialy look at `package.json` and discover other script.
+#### Finaly look at `package.json` and discover other script.
 
 #### Happy Coding :)
