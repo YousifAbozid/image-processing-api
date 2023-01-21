@@ -33,7 +33,7 @@ routes.get('/images', async (req, res) => {
       res.sendFile(image)
     } else {
       // If the image doesn't exist, return all avilable images links
-      res.send(
+      res.status(400).send(
         `<div>There is no image with that name (${
           filenameToString ? filenameToString : ''
         }) <br> <br> Available images to search: <br>
@@ -72,7 +72,7 @@ routes.get('/images', async (req, res) => {
       }
     } catch (error) {
       // If the image doesn't exist, return all avilable images links
-      res.send(
+      res.status(400).send(
         `<div>There is no image with that name (${
           filenameToString ? filenameToString : ''
         }) <br> <br> Available images to search: <br>

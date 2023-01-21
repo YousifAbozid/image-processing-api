@@ -66,7 +66,7 @@ routes.get('/images', function (req, res) { return __awaiter(void 0, void 0, voi
                 }
                 else {
                     // If the image doesn't exist, return all avilable images links
-                    res.send("<div>There is no image with that name (".concat(filenameToString ? filenameToString : '', ") <br> <br> Available images to search: <br>\n        ").concat(imageNames.map(function (image) {
+                    res.status(400).send("<div>There is no image with that name (".concat(filenameToString ? filenameToString : '', ") <br> <br> Available images to search: <br>\n        ").concat(imageNames.map(function (image) {
                         return "<br>\n          <a href=\"http://localhost:3000/images?filename=".concat(image, "\">http://localhost:3000/images?filename=").concat(image, "</a>");
                     }), "\n        <br> <br> Or search with width and height: <br>\n        ").concat(imageNames.map(function (image) {
                         return "<br>\n            <a href=\"http://localhost:3000/images?filename=".concat(image, "&width=100&height=100\">http://localhost:3000/images?filename=").concat(image, "&width=100&height=100</a></a>");
@@ -91,7 +91,7 @@ routes.get('/images', function (req, res) { return __awaiter(void 0, void 0, voi
             case 6:
                 error_1 = _b.sent();
                 // If the image doesn't exist, return all avilable images links
-                res.send("<div>There is no image with that name (".concat(filenameToString ? filenameToString : '', ") <br> <br> Available images to search: <br>\n        ").concat(imageNames.map(function (image) {
+                res.status(400).send("<div>There is no image with that name (".concat(filenameToString ? filenameToString : '', ") <br> <br> Available images to search: <br>\n        ").concat(imageNames.map(function (image) {
                     return "<br>\n          <a href=\"http://localhost:3000/images?filename=".concat(image, "\">http://localhost:3000/images?filename=").concat(image, "</a>");
                 }), "\n        <br> <br> Or search with width and height: <br>\n        ").concat(imageNames.map(function (image) {
                     return "<br>\n            <a href=\"http://localhost:3000/images?filename=".concat(image, "&width=100&height=100\">http://localhost:3000/images?filename=").concat(image, "&width=100&height=100</a></a>");

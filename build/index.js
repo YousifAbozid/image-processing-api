@@ -12,3 +12,4 @@ app.use('/', routes_1.default); // Mount the router on the app
 app.listen(port, function () {
     return console.log("Server running on port ".concat(port, " \nClick on the link to visit it ==> (http://localhost:").concat(port, ")"));
 });
+exports.default = app;

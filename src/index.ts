@@ -12,3 +12,5 @@ app.listen(port, () =>
     `Server running on port ${port} \nClick on the link to visit it ==> (http://localhost:${port})`
   )
 )
+
+export default app
