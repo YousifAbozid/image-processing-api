@@ -45,4 +45,17 @@ describe('Test image processing', () => {
     );
     expect(fs.existsSync(outputThumbPath)).toBeTrue();
   });
+
+  it("The image is generated after it's deletion", async () => {
+    // Delete the image if it exists
+    if (fs.existsSync(outputThumbPath)) {
+      fs.unlinkSync(outputThumbPath);
+    }
+
+    // generate a new image
+    await request.get(
+      `/images?filename=${filename}&width=${width}&height=${height}`
+    );
+    expect(fs.existsSync(outputThumbPath)).toBeTrue();
+  });
 });
