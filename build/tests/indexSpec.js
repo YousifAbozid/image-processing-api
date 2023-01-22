@@ -113,15 +113,18 @@ describe('Test image processing', function () {
             }
         });
     }); });
-    it("The image is generated after it's deletion", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('The image is generated after it\'s deletion', function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    // Delete the image if it exists
                     if (fs_1.default.existsSync(outputThumbPath)) {
                         fs_1.default.unlinkSync(outputThumbPath);
                     }
+                    // generate a new image
                     return [4 /*yield*/, request.get("/images?filename=".concat(filename, "&width=").concat(width, "&height=").concat(height))];
                 case 1:
+                    // generate a new image
                     _a.sent();
                     expect(fs_1.default.existsSync(outputThumbPath)).toBeTrue();
                     return [2 /*return*/];

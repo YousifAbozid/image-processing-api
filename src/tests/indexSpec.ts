@@ -46,7 +46,7 @@ describe('Test image processing', (): void => {
     expect(fs.existsSync(outputThumbPath)).toBeTrue();
   });
 
-  it("The image is generated after it's deletion", async (): Promise<void> => {
+  it('The image is generated after it\'s deletion', async (): Promise<void> => {
     // Delete the image if it exists
     if (fs.existsSync(outputThumbPath)) {
       fs.unlinkSync(outputThumbPath);

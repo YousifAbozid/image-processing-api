@@ -45,7 +45,9 @@ var path_1 = __importDefault(require("path"));
 var processImage_1 = __importDefault(require("../processImage"));
 var routes = express_1.default.Router();
 // Root endpoint`
-routes.get('/', function (req, res) { return res.send('Server Is Running!'); });
+routes.get('/', function (req, res) {
+    res.send('Server Is Running!');
+});
 // Images endpoint
 routes.get('/images', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var images, imageNames, _a, filename, width, height, filenameToString, widthToNumber, heightToNumber, image, image, resizedImage, error_1;
