@@ -6,7 +6,9 @@ import processImage from '../processImage';
 const routes = express.Router();
 
 // Root endpoint`
-routes.get('/', (req, res) => res.send('Server Is Running!'));
+routes.get('/', (req: express.Request, res: express.Response): void => {
+  res.send('Server Is Running!');
+});
 
 // Images endpoint
 routes.get(

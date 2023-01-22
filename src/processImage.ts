@@ -8,8 +8,12 @@ const processImage = async (
   filename: string,
   width: number,
   height: number
-) => {
-  const image = path.join(__dirname, '../assets/full', `${filename}.jpg`);
+): Promise<string> => {
+  const image: string = path.join(
+    __dirname,
+    '../assets/full',
+    `${filename}.jpg`
+  );
   const thumbFolder: string = path.join(__dirname, '../assets/thumb');
   const imageOutput: string =
     path.join(__dirname, '../assets/thumb', filename) +
@@ -23,10 +27,10 @@ const processImage = async (
   try {
     // Resize the image and return the resized image
     await sharp(image).resize(width, height).toFile(imageOutput);
-    return imageOutput;
+    return imageOutput as string;
   } catch (error) {
     // If it fails, returns the error
-    return error;
+    return error as string;
   }
 };
 
