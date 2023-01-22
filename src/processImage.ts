@@ -8,7 +8,7 @@ const processImage = async (
   filename: string,
   width: number,
   height: number
-): Promise<string> => {
+): Promise<string | number> => {
   const image: string = path.join(
     __dirname,
     '../assets/full',
@@ -27,10 +27,12 @@ const processImage = async (
   try {
     // Resize the image and return the resized image
     await sharp(image).resize(width, height).toFile(imageOutput);
+    console.log(imageOutput);
     return imageOutput as string;
   } catch (error) {
     // If it fails, returns the error
-    return error as string;
+    const status = 400;
+    return status;
   }
 };
 

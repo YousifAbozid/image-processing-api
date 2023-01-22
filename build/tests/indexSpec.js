@@ -43,6 +43,7 @@ var supertest_1 = __importDefault(require("supertest"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var index_1 = __importDefault(require("../index"));
+var processImage_1 = __importDefault(require("../processImage"));
 var request = (0, supertest_1.default)(index_1.default);
 // Test the paths
 describe('Test the root path', function () {
@@ -74,8 +75,8 @@ describe('Test the root path', function () {
 // Test the image processing
 describe('Test image processing', function () {
     var filename = 'fjord';
-    var width = '1000';
-    var height = '1000';
+    var width = 1000;
+    var height = 1000;
     var outputThumbPath = path_1.default.join(__dirname, '../../assets/thumb', filename) +
         "-".concat(width, "-").concat(height, ".jpg");
     var outputFullImagePath = path_1.default.join(__dirname, '../../assets/full', filename) + '.jpg';
@@ -127,6 +128,32 @@ describe('Test image processing', function () {
                     // generate a new image
                     _a.sent();
                     expect(fs_1.default.existsSync(outputThumbPath)).toBeTrue();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    // Test the processImage sharp function correctly
+    it('Return the output image correct so sharp function works', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, processImage_1.default)(filename, width, height)];
+                case 1:
+                    response = _a.sent();
+                    expect(response).toBe(outputThumbPath);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    // Test the processImage sharp function uncorrectly
+    it('Return error when passing wrong parameters to sharp function', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, processImage_1.default)('test', 0, 0)];
+                case 1:
+                    response = _a.sent();
+                    expect(response).toBe(400);
                     return [2 /*return*/];
             }
         });

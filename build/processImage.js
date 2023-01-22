@@ -45,7 +45,7 @@ var fs_1 = require("fs");
 var fs_2 = __importDefault(require("fs"));
 // Resize the image and save it in the thumb folder
 var processImage = function (filename, width, height) { return __awaiter(void 0, void 0, void 0, function () {
-    var image, thumbFolder, imageOutput, error_1;
+    var image, thumbFolder, imageOutput, error_1, status_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -65,11 +65,12 @@ var processImage = function (filename, width, height) { return __awaiter(void 0,
             case 3:
                 // Resize the image and return the resized image
                 _a.sent();
+                console.log(imageOutput);
                 return [2 /*return*/, imageOutput];
             case 4:
                 error_1 = _a.sent();
-                // If it fails, returns the error
-                return [2 /*return*/, error_1];
+                status_1 = 400;
+                return [2 /*return*/, status_1];
             case 5: return [2 /*return*/];
         }
     });

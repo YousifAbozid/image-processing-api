@@ -2,6 +2,7 @@ import supertest from 'supertest';
 import fs from 'fs';
 import path from 'path';
 import app from '../index';
+import processImage from '../processImage';
 
 const request = supertest(app);
 
@@ -21,8 +22,8 @@ describe('Test the root path', (): void => {
 // Test the image processing
 describe('Test image processing', (): void => {
   const filename = 'fjord';
-  const width = '1000';
-  const height = '1000';
+  const width = 1000;
+  const height = 1000;
   const outputThumbPath =
     path.join(__dirname, '../../assets/thumb', filename) +
     `-${width}-${height}.jpg`;
@@ -57,5 +58,17 @@ describe('Test image processing', (): void => {
       `/images?filename=${filename}&width=${width}&height=${height}`
     );
     expect(fs.existsSync(outputThumbPath)).toBeTrue();
+  });
+
+  // Test the processImage sharp function correctly
+  it('Return the output image correct so sharp function works', async (): Promise<void> => {
+    const response = await processImage(filename, width, height);
+    expect(response).toBe(outputThumbPath);
+  });
+
+  // Test the processImage sharp function uncorrectly
+  it('Return error when passing wrong parameters to sharp function', async (): Promise<void> => {
+    const response = await processImage('test', 0, 0);
+    expect(response).toBe(400);
   });
 });
